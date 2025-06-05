@@ -1,0 +1,117 @@
+/* Root & basic reset */
+
+
+.register-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Left side image, full height & width half */
+.left-image {
+  flex: 1;
+  min-width: none;
+  max-width: 100%;
+  background-image: url('../images/register.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Right side container, fixed width, scrollable if content overflows */
+.register-container {
+  flex: 1;
+  background: #1e1e2f; /* dark-blue-ish background */
+  color: white;
+  padding: 40px 30px;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Optional: Make container act as background with some opacity */
+.register-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/register.png'); /* same image or another background */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content stays above the bg image overlay */
+.register-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="tel"],
+.register-form input[type="date"],
+.register-form input[type="number"] {
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.gender-group {
+  color: #ddd;
+  font-weight: 600;
+  display: flex;
+  gap: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.gender-group label {
+  font-weight: 400;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.gender-group input[type="radio"] {
+  margin-right: 6px;
+}
+
+.register-btn {
+  margin-top: 30px;
+  padding: 12px 0;
+  background-color: #5a67d8;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #434aa8;
+}

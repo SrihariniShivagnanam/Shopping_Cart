@@ -1,0 +1,127 @@
+.about-section {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+}
+
+.about-container {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.about-card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 80%;
+  height: 165px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transform: translateY(0);
+  border: 2px solid transparent;
+}
+
+.about-card:nth-child(3) {
+  grid-column: span 2;
+  justify-self: center;
+  width: 40%;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -20%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, #FEFAE0, #FFCF50, #A4B465);
+  z-index: -1;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.about-card:hover::before {
+  opacity: 1;
+  filter: blur(20px);
+}
+
+.about-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  color: #fff;
+  background: linear-gradient(135deg, #A4B465, #FFCF50, #A4B465);
+  border: 2px solid #fff;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+
+.about-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111827;
+  transition: color 0.3s ease;
+}
+
+.about-card:hover h3 {
+  color: #fff;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+  transition: color 0.3s ease;
+}
+
+.about-card:hover p {
+  color: #f3f4f6;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 500px;
+  background: url("../images/ABT.png") no-repeat center center;
+  background-size: cover;
+  border-radius: 2rem;
+  min-height: 400px;
+}
+
+.fade-in {
+  animation: fadeInUp 0.7s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card:nth-child(3) {
+    width: 100%;
+  }
+
+  .about-image {
+    height: 300px;
+  }
+}
